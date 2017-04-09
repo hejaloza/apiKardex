@@ -1,0 +1,29 @@
+AppBundle\Entity\UnidadMedida:
+    type: entity
+    table: unidad_medida
+    id:
+        umIdUnidad:
+            type: integer
+            nullable: false
+            options:
+                unsigned: false
+            id: true
+            column: um_id_unidad
+            generator:
+                strategy: IDENTITY
+    fields:
+        umAbreviatura:
+            type: string
+            nullable: false
+            length: 25
+            options:
+                fixed: false
+            column: um_abreviatura
+        umDescripcion:
+            type: string
+            nullable: false
+            length: 25
+            options:
+                fixed: false
+            column: um_descripcion
+    lifecycleCallbacks: {  }

@@ -1,0 +1,106 @@
+AppBundle\Entity\Producto:
+    type: entity
+    table: producto
+    indexes:
+        ca_id_categoria:
+            columns:
+                - ca_id_categoria
+        um_id_unidad:
+            columns:
+                - um_id_unidad
+        us_id_usuario:
+            columns:
+                - us_id_usuario
+    id:
+        prodIdProducto:
+            type: integer
+            nullable: false
+            options:
+                unsigned: false
+            id: true
+            column: prod_id_producto
+            generator:
+                strategy: IDENTITY
+    fields:
+        prodNombre:
+            type: string
+            nullable: false
+            length: 200
+            options:
+                fixed: false
+            column: prod_nombre
+        prodDetalle:
+            type: string
+            nullable: false
+            length: 200
+            options:
+                fixed: false
+            column: prod_detalle
+        prodCodigo:
+            type: string
+            nullable: false
+            length: 100
+            options:
+                fixed: false
+            column: prod_codigo
+        prodEstado:
+            type: string
+            nullable: false
+            length: 50
+            options:
+                fixed: false
+            column: prod_estado
+        prodStock:
+            type: integer
+            nullable: false
+            options:
+                unsigned: false
+            column: prod_stock
+        prodPrecioUnitario:
+            type: decimal
+            nullable: false
+            precision: 10
+            scale: 2
+            column: prod_precio_unitario
+        prodPrecioTotal:
+            type: decimal
+            nullable: false
+            precision: 10
+            scale: 2
+            column: prod_precio_total
+        prodFechaIngreso:
+            type: datetime
+            nullable: false
+            column: prod_fecha_ingreso
+    manyToOne:
+        caCategoria:
+            targetEntity: Categoria
+            cascade: {  }
+            fetch: LAZY
+            mappedBy: null
+            inversedBy: null
+            joinColumns:
+                ca_id_categoria:
+                    referencedColumnName: ca_id_categoria
+            orphanRemoval: false
+        umUnidad:
+            targetEntity: UnidadMedida
+            cascade: {  }
+            fetch: LAZY
+            mappedBy: null
+            inversedBy: null
+            joinColumns:
+                um_id_unidad:
+                    referencedColumnName: um_id_unidad
+            orphanRemoval: false
+        usUsuario:
+            targetEntity: Usuario
+            cascade: {  }
+            fetch: LAZY
+            mappedBy: null
+            inversedBy: null
+            joinColumns:
+                us_id_usuario:
+                    referencedColumnName: us_id_usuario
+            orphanRemoval: false
+    lifecycleCallbacks: {  }

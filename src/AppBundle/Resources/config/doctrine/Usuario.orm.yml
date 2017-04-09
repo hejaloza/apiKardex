@@ -1,0 +1,44 @@
+AppBundle\Entity\Usuario:
+    type: entity
+    table: usuario
+    indexes:
+        id_rol:
+            columns:
+                - id_rol
+    id:
+        usIdUsuario:
+            type: integer
+            nullable: false
+            options:
+                unsigned: false
+            id: true
+            column: us_id_usuario
+            generator:
+                strategy: IDENTITY
+    fields:
+        usUsername:
+            type: string
+            nullable: false
+            length: 50
+            options:
+                fixed: false
+            column: us_username
+        usPassword:
+            type: string
+            nullable: false
+            length: 50
+            options:
+                fixed: false
+            column: us_password
+    manyToOne:
+        idRol:
+            targetEntity: Rol
+            cascade: {  }
+            fetch: LAZY
+            mappedBy: null
+            inversedBy: null
+            joinColumns:
+                id_rol:
+                    referencedColumnName: id_rol
+            orphanRemoval: false
+    lifecycleCallbacks: {  }

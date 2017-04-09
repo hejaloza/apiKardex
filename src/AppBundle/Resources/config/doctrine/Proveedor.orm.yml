@@ -1,0 +1,67 @@
+AppBundle\Entity\Proveedor:
+    type: entity
+    table: proveedor
+    id:
+        prIdProveedor:
+            type: integer
+            nullable: false
+            options:
+                unsigned: false
+            id: true
+            column: pr_id_proveedor
+            generator:
+                strategy: IDENTITY
+    fields:
+        prRazonSocial:
+            type: string
+            nullable: false
+            length: 150
+            options:
+                fixed: false
+            column: pr_razon_social
+        prRuc:
+            type: string
+            nullable: true
+            length: 150
+            options:
+                fixed: false
+            column: pr_ruc
+        prDireccion:
+            type: string
+            nullable: false
+            length: 150
+            options:
+                fixed: false
+            column: pr_direccion
+        prTelefono:
+            type: integer
+            nullable: false
+            options:
+                unsigned: false
+            column: pr_telefono
+        prCorreo:
+            type: string
+            nullable: false
+            length: 25
+            options:
+                fixed: false
+            column: pr_correo
+        prDescripcion:
+            type: string
+            nullable: false
+            length: 200
+            options:
+                fixed: false
+            column: pr_descripcion
+        prContacto:
+            type: string
+            nullable: false
+            length: 50
+            options:
+                fixed: false
+            column: pr_contacto
+        prFechaIngreso:
+            type: datetime
+            nullable: false
+            column: pr_fecha_ingreso
+    lifecycleCallbacks: {  }

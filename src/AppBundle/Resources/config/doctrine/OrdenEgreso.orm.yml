@@ -1,0 +1,107 @@
+AppBundle\Entity\OrdenEgreso:
+    type: entity
+    table: orden_egreso
+    indexes:
+        cl_id_cliente:
+            columns:
+                - cl_id_cliente
+        prod_id_producto:
+            columns:
+                - prod_id_producto
+        lp_id_localidad:
+            columns:
+                - lp_id_localidad
+        sp_id_solicitud:
+            columns:
+                - sp_id_solicitud
+    uniqueConstraints:
+        us_id_usuario:
+            columns:
+                - us_id_usuario
+    id:
+        oeIdEgreso:
+            type: integer
+            nullable: false
+            options:
+                unsigned: false
+            id: true
+            column: oe_id_egreso
+            generator:
+                strategy: IDENTITY
+    fields:
+        oeCantidad:
+            type: integer
+            nullable: false
+            options:
+                unsigned: false
+            column: oe_cantidad
+        oeValorUnitario:
+            type: decimal
+            nullable: false
+            precision: 10
+            scale: 2
+            column: oe_valor_unitario
+        oeValorTotal:
+            type: decimal
+            nullable: false
+            precision: 10
+            scale: 2
+            column: oe_valor_total
+        oeFechaEgreso:
+            type: integer
+            nullable: false
+            options:
+                unsigned: false
+            column: oe_fecha_egreso
+    manyToOne:
+        clCliente:
+            targetEntity: Cliente
+            cascade: {  }
+            fetch: LAZY
+            mappedBy: null
+            inversedBy: null
+            joinColumns:
+                cl_id_cliente:
+                    referencedColumnName: cl_id_cliente
+            orphanRemoval: false
+        lpLocalidad:
+            targetEntity: LocalidadProducto
+            cascade: {  }
+            fetch: LAZY
+            mappedBy: null
+            inversedBy: null
+            joinColumns:
+                lp_id_localidad:
+                    referencedColumnName: lp_id_localidad
+            orphanRemoval: false
+        prodProducto:
+            targetEntity: Producto
+            cascade: {  }
+            fetch: LAZY
+            mappedBy: null
+            inversedBy: null
+            joinColumns:
+                prod_id_producto:
+                    referencedColumnName: prod_id_producto
+            orphanRemoval: false
+        spSolicitud:
+            targetEntity: SolicitudProducto
+            cascade: {  }
+            fetch: LAZY
+            mappedBy: null
+            inversedBy: null
+            joinColumns:
+                sp_id_solicitud:
+                    referencedColumnName: sp_id_solicitud
+            orphanRemoval: false
+        usUsuario:
+            targetEntity: Usuario
+            cascade: {  }
+            fetch: LAZY
+            mappedBy: null
+            inversedBy: null
+            joinColumns:
+                us_id_usuario:
+                    referencedColumnName: us_id_usuario
+            orphanRemoval: false
+    lifecycleCallbacks: {  }

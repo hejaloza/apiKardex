@@ -1,0 +1,85 @@
+AppBundle\Entity\OrdenIngreso:
+    type: entity
+    table: orden_ingreso
+    indexes:
+        pr_id_proveedor:
+            columns:
+                - pr_id_proveedor
+        prod_id_producto:
+            columns:
+                - prod_id_producto
+        us_id_usuario:
+            columns:
+                - us_id_usuario
+    id:
+        oiIdIngreso:
+            type: integer
+            nullable: false
+            options:
+                unsigned: false
+            id: true
+            column: oi_id_ingreso
+            generator:
+                strategy: IDENTITY
+    fields:
+        oiCantidad:
+            type: integer
+            nullable: false
+            options:
+                unsigned: false
+            column: oi_cantidad
+        oiValorUnitario:
+            type: decimal
+            nullable: false
+            precision: 10
+            scale: 2
+            column: oi_valor_unitario
+        oiValorTotal:
+            type: decimal
+            nullable: false
+            precision: 10
+            scale: 2
+            column: oi_valor_total
+        oiFactura:
+            type: string
+            nullable: false
+            length: 200
+            options:
+                fixed: false
+            column: oi_factura
+        oiFechaIngreso:
+            type: datetime
+            nullable: false
+            column: oi_fecha_ingreso
+    manyToOne:
+        prodProducto:
+            targetEntity: Producto
+            cascade: {  }
+            fetch: LAZY
+            mappedBy: null
+            inversedBy: null
+            joinColumns:
+                prod_id_producto:
+                    referencedColumnName: prod_id_producto
+            orphanRemoval: false
+        prProveedor:
+            targetEntity: Proveedor
+            cascade: {  }
+            fetch: LAZY
+            mappedBy: null
+            inversedBy: null
+            joinColumns:
+                pr_id_proveedor:
+                    referencedColumnName: pr_id_proveedor
+            orphanRemoval: false
+        usUsuario:
+            targetEntity: Usuario
+            cascade: {  }
+            fetch: LAZY
+            mappedBy: null
+            inversedBy: null
+            joinColumns:
+                us_id_usuario:
+                    referencedColumnName: us_id_usuario
+            orphanRemoval: false
+    lifecycleCallbacks: {  }

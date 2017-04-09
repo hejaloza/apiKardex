@@ -1,0 +1,22 @@
+AppBundle\Entity\LocalidadProducto:
+    type: entity
+    table: localidad_producto
+    id:
+        lpIdLocalidad:
+            type: integer
+            nullable: false
+            options:
+                unsigned: false
+            id: true
+            column: lp_id_localidad
+            generator:
+                strategy: IDENTITY
+    fields:
+        lpDescripcion:
+            type: string
+            nullable: false
+            length: 100
+            options:
+                fixed: false
+            column: lp_descripcion
+    lifecycleCallbacks: {  }

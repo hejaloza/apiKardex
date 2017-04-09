@@ -1,0 +1,73 @@
+AppBundle\Entity\SolicitudProducto:
+    type: entity
+    table: solicitud_producto
+    indexes:
+        prod_id_producto:
+            columns:
+                - prod_id_producto
+        lp_id_localidad:
+            columns:
+                - lp_id_localidad
+        us_id_usuario:
+            columns:
+                - us_id_usuario
+    id:
+        spIdSolicitud:
+            type: integer
+            nullable: false
+            options:
+                unsigned: false
+            id: true
+            column: sp_id_solicitud
+            generator:
+                strategy: IDENTITY
+    fields:
+        spCantidad:
+            type: integer
+            nullable: false
+            options:
+                unsigned: false
+            column: sp_cantidad
+        spEstado:
+            type: string
+            nullable: false
+            length: 100
+            options:
+                fixed: false
+            column: sp_estado
+        spFechaSolicitud:
+            type: datetime
+            nullable: false
+            column: sp_fecha_solicitud
+    manyToOne:
+        lpLocalidad:
+            targetEntity: LocalidadProducto
+            cascade: {  }
+            fetch: LAZY
+            mappedBy: null
+            inversedBy: null
+            joinColumns:
+                lp_id_localidad:
+                    referencedColumnName: lp_id_localidad
+            orphanRemoval: false
+        prodProducto:
+            targetEntity: Producto
+            cascade: {  }
+            fetch: LAZY
+            mappedBy: null
+            inversedBy: null
+            joinColumns:
+                prod_id_producto:
+                    referencedColumnName: prod_id_producto
+            orphanRemoval: false
+        usUsuario:
+            targetEntity: Usuario
+            cascade: {  }
+            fetch: LAZY
+            mappedBy: null
+            inversedBy: null
+            joinColumns:
+                us_id_usuario:
+                    referencedColumnName: us_id_usuario
+            orphanRemoval: false
+    lifecycleCallbacks: {  }

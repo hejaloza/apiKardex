@@ -1,0 +1,28 @@
+AppBundle\Entity\Categoria:
+    type: entity
+    table: categoria
+    id:
+        caIdCategoria:
+            type: integer
+            nullable: false
+            options:
+                unsigned: false
+            id: true
+            column: ca_id_categoria
+            generator:
+                strategy: IDENTITY
+    fields:
+        caCodCategoria:
+            type: integer
+            nullable: false
+            options:
+                unsigned: false
+            column: ca_cod_categoria
+        caDescripcion:
+            type: string
+            nullable: false
+            length: 100
+            options:
+                fixed: false
+            column: ca_descripcion
+    lifecycleCallbacks: {  }

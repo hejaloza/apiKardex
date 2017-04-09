@@ -1,0 +1,61 @@
+AppBundle\Entity\Cliente:
+    type: entity
+    table: cliente
+    id:
+        clIdCliente:
+            type: integer
+            nullable: false
+            options:
+                unsigned: false
+            id: true
+            column: cl_id_cliente
+            generator:
+                strategy: IDENTITY
+    fields:
+        clDni:
+            type: string
+            nullable: false
+            length: 50
+            options:
+                fixed: false
+            column: cl_dni
+        clNombre:
+            type: string
+            nullable: false
+            length: 100
+            options:
+                fixed: false
+            column: cl_nombre
+        clApellido:
+            type: string
+            nullable: false
+            length: 100
+            options:
+                fixed: false
+            column: cl_apellido
+        clDireccion:
+            type: string
+            nullable: false
+            length: 100
+            options:
+                fixed: false
+            column: cl_direccion
+        clTelefono:
+            type: integer
+            nullable: false
+            options:
+                unsigned: false
+            column: cl_telefono
+        clRuc:
+            type: integer
+            nullable: false
+            options:
+                unsigned: false
+            column: cl_ruc
+        clFechaIngreso:
+            type: integer
+            nullable: false
+            options:
+                unsigned: false
+            column: cl_fecha_ingreso
+    lifecycleCallbacks: {  }
